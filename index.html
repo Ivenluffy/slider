@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="slider.js"></script>
+    <style>
+        .box{
+            width:100px;
+            height:200px;
+            border:4px solid #ccc;
+            padding:20px;
+            background:lightskyblue;
+        }
+    </style>
+</head>
+<body>
+<button onclick="upFn()">slideup</button>
+<button onclick="downFn()">slidedown</button>
+<button onclick="toggleFn()">slidetogle</button>
+<div class="box"></div>
+</body>
+</html>
+<script>
+    var s=new Slider('.box');
+    function upFn(){
+        s.slideUp(1000)
+    }
+    function downFn(){
+        s.slideDown(1000)
+    }
+    function toggleFn(){
+        s.slideToggle(1000)
+    }
+</script>
