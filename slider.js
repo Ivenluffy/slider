@@ -163,15 +163,21 @@
             var el=this.el,
                 slide = Symbol('slide').toString(),
                 now = nowH(el),
-                end =endH(el),
-                bt = parseNum(end.bt),
-                bb = parseNum(end.bb),
-                pt = parseNum(end.pt),
-                pb = parseNum(end.pb),
-                h = parseNum(end.h),
-                total = h + pt + pb + bt + bb,
+                // bt = parseNum(end.bt),
+                // bb = parseNum(end.bb),
+                // pt = parseNum(end.pt),
+                // pb = parseNum(end.pb),
+                // h = parseNum(end.h),
+                //total = h + pt + pb + bt + bb,
+                //sum = total - (parseNum(now.bt) + parseNum(now.bb) + parseNum(now.pt) + parseNum(now.pb) + parseNum(now.h)),
+                bt = parseNum(now.bt),
+                bb =  parseNum(now.bb),
+                pt =  parseNum(now.pt),
+                pb = parseNum(now.pb) ,
+                h = parseNum(now.h),
+                total=(parseNum(now.bt) + parseNum(now.bb) + parseNum(now.pt) + parseNum(now.pb) + parseNum(now.h)),
+                sum=0,
                 finish = false,
-                sum = total - (parseNum(now.bt) + parseNum(now.bb) + parseNum(now.pt) + parseNum(now.pb) + parseNum(now.h)),
                 speed = (millisecond ? total / millisecond : total / 300) * 5;
             el.style.cssText = el.style.cssText + 'overflow:hidden;';
             clearInterval(el[slide]);
@@ -214,7 +220,8 @@
             }, 5);//间隔时间不要过小或过大,否则最终花费时间会与设定的完成时间误差较大,且设置间隔过大会卡顿没有平缓过度效果
             return this
         },
-        /**
+
+    /**
          * 以滑动方式显示节点
          * @param {number} millisecond 滑动速度(完成滑动所需毫秒时间),默认值300
          */
